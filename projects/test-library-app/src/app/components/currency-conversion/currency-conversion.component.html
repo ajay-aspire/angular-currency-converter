@@ -4,8 +4,8 @@
       <div class="row my-3">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <select formControlName="countryRates" class="form-control" id="base-currency-field" (change)="onBaseCurrencyChange($event)">
-            <option value='' [selected]="'Select Base Currency'" hidden>Select Base Currency</option>
-            <option *ngFor="let option of currencyRates;let i=index" [ngValue]="option.rate" [selected]="option.currencyCode == selectedBase" >{{ currencyRates[i].currencyCode }}</option>
+            <option [value]="''" [selected]="'Select Base Currency'" hidden>Select Base Currency</option>
+            <option *ngFor="let option of currencyRates;let i=index" [ngValue]="option" [selected]="option.currencyCode === selectedBase">{{ option.currencyCode }}</option>
           </select>
           <div *ngIf="submitted && isFieldValid('countryRates')">
             <small class="text-danger">
@@ -15,8 +15,8 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <select formControlName="targetRates" class="form-control" id="target-rates" (change)="onTargetCurrencyChange($event)">
-            <option value='' [selected]="'Select Target Currency'" hidden>Select Target Currency</option>
-            <option *ngFor="let option of currencyRates;let j=index" [ngValue]="option.rate" [selected]="option.currencyCode == selectedTarget">{{ currencyRates[j].currencyCode }}</option>
+            <option [value]="''" [selected]="'Select Target Currency'" hidden>Select Target Currency</option>
+            <option *ngFor="let option of currencyRates;" [ngValue]="option" [selected]="option.currencyCode === selectedTarget">{{ option.currencyCode }}</option>
           </select>
           <div *ngIf="submitted && isFieldValid('targetRates')">
             <small class="text-danger">
@@ -39,7 +39,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="input-group">
             <input class="form-control" formControlName="datePicker" placeholder="yyyy-mm-dd" name="dp"
-              [(ngModel)]="model" (ngModelChange)="onDateChange(model)" ngbDatepicker #d="ngbDatepicker">
+              (dateSelect)="onDateChange($event)" ngbDatepicker #d="ngbDatepicker">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" [disabled]="disabled"
                 type="button"></button>
