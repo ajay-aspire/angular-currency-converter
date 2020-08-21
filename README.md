@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
-Angular currency converter is an angular library that help you to convert your money into various currencies by used of latest & historical currency exchange rates. 
+Angular currency converter is an angular library that helps you to convert your money into various currencies by using the latest & historical currency exchange rates. 
 
 ## Project Configuration
 
